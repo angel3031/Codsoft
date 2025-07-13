@@ -1,7 +1,10 @@
 #include <iostream>
 using namespace std;
+
+
 char board[3][3];            
 char currentPlayer;          
+
 
 void setupBoard() {
     char position = '1';
@@ -11,6 +14,7 @@ void setupBoard() {
         }
     }
 }
+
 
 void showBoard() {
     cout << "\nCurrent Board:\n\n";
@@ -25,9 +29,11 @@ void showBoard() {
     cout << "\n\n";
 }
 
+
 void changeTurn() {
     currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
 }
+
 
 bool placeMark(int cell) {
     int row = (cell - 1) / 3;
@@ -38,12 +44,14 @@ bool placeMark(int cell) {
         return false;
     }
 
-    board[row][col] = currentPlayer; // Mark the cell
+    board[row][col] = currentPlayer; 
     return true;
 }
 
+
 bool hasPlayerWon() {
     for(int i = 0; i < 3; i++) {
+        
         if((board[i][0] == currentPlayer && board[i][1] == currentPlayer && board[i][2] == currentPlayer) ||
            (board[0][i] == currentPlayer && board[1][i] == currentPlayer && board[2][i] == currentPlayer))
             return true;
@@ -74,7 +82,7 @@ int main() {
         currentPlayer = 'X'; 
         bool gameOver = false;
 
-        cout << " Welcome to Tic-Tac-Toe for Two Players! \n";
+        cout << "🎮 Welcome to Tic-Tac-Toe for Two Players! 🎮\n";
 
         while(!gameOver) {
             showBoard();
@@ -105,6 +113,6 @@ int main() {
 
     } while(playAgain == 'y' || playAgain == 'Y');
 
-    cout << " Thanks for playing! Goodbye!\n";
+    cout << "Thanks for playing! Goodbye!\n";
     return 0;
 }
